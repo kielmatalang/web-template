@@ -198,6 +198,13 @@ export const hasPermissionToViewData = currentUser => {
  */
 export const isUserAuthorized = currentUser => currentUser?.attributes?.state === 'active';
 
+const getCurrentUserTypeConfig = (config, currentUser) => {
+  const { userTypes } = config.user;
+  return userTypes.find(
+    ut => ut.userType === currentUser?.attributes?.profile?.publicData?.userType
+  );
+};
+
 /**
  * Check if the links for creating a new listing should be shown to the
  * user currently browsing the marketplace.
@@ -215,4 +222,21 @@ export const showCreateListingLinkForUser = (config, currentUser) => {
   return currentUser && currentUserTypeConfig
     ? currentUserTypeConfig?.visibility?.showCreateListings
     : topbar.createListingsLink?.display;
+};
+
+/**
+ * Check if payout details tab and payout methods tab should be shown for the user
+ * @param {Object} config Marketplace configuration
+ * @param {*} currentUser API entity
+ * @returns {Object} { showPayoutDetails: Boolean, showPaymentMethods: boolean }
+ */
+export const showPaymentDetailsForUser = (config, currentUser) => {
+  const currentUserTypeConfig = getCurrentUserTypeConfig(config, currentUser);
+
+  return (
+    (currentUser && currentUserTypeConfig?.visibility) || {
+      showPaymentMethods: true,
+      showPayoutDetails: true,
+    }
+  );
 };
