@@ -213,11 +213,8 @@ const getCurrentUserTypeConfig = (config, currentUser) => {
  * @returns {Boolean} true if the currentUser's user type, or the anonymous user configuration, is set to see the link
  */
 export const showCreateListingLinkForUser = (config, currentUser) => {
-  const { topbar, user } = config;
-  const { userTypes } = user;
-  const currentUserTypeConfig = userTypes.find(
-    ut => ut.userType === currentUser?.attributes?.profile?.publicData?.userType
-  );
+  const { topbar } = config;
+  const currentUserTypeConfig = getCurrentUserTypeConfig(config, currentUser);
 
   return currentUser && currentUserTypeConfig
     ? currentUserTypeConfig?.visibility?.showCreateListings
@@ -237,6 +234,16 @@ export const showPaymentDetailsForUser = (config, currentUser) => {
     (currentUser && currentUserTypeConfig?.visibility) || {
       showPaymentMethods: true,
       showPayoutDetails: true,
+    }
+  );
+};
+
+export const getCurrentUserTypeRoles = (config, currentUser) => {
+  const currentUserTypeConfig = getCurrentUserTypeConfig(config, currentUser);
+  return (
+    currentUserTypeConfig?.roles || {
+      isCustomer: true,
+      isProvider: true,
     }
   );
 };

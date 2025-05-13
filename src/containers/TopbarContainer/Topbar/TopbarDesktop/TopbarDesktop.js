@@ -39,14 +39,10 @@ const LoginLink = () => {
   );
 };
 
-const InboxLink = ({ notificationCount, currentUserHasListings }) => {
+const InboxLink = ({ notificationCount, inboxTab }) => {
   const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
   return (
-    <NamedLink
-      className={css.topbarLink}
-      name="InboxPage"
-      params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
-    >
+    <NamedLink className={css.topbarLink} name="InboxPage" params={{ tab: inboxTab }}>
       <span className={css.topbarLinkLabel}>
         <FormattedMessage id="TopbarDesktop.inbox" />
         {notificationDot}
@@ -145,6 +141,7 @@ const TopbarDesktop = props => {
     initialSearchFormValues = {},
     showSearchForm,
     showCreateListingsLink,
+    inboxTab,
   } = props;
   const [mounted, setMounted] = useState(false);
 
@@ -160,10 +157,7 @@ const TopbarDesktop = props => {
   const classes = classNames(rootClassName || css.root, className);
 
   const inboxLinkMaybe = authenticatedOnClientSide ? (
-    <InboxLink
-      notificationCount={notificationCount}
-      currentUserHasListings={currentUserHasListings}
-    />
+    <InboxLink notificationCount={notificationCount} inboxTab={inboxTab} />
   ) : null;
 
   const profileMenuMaybe = authenticatedOnClientSide ? (

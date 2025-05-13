@@ -1476,6 +1476,10 @@ export const mergeConfig = (configAsset = {}, defaultConfigs = {}) => {
       showPayoutDetails: (idx + 1) % 2 !== 0,
       showPaymentMethods: (idx + 1) % 3 !== 1,
     },
+    roles: {
+      isCustomer: (idx + 1) % 3 !== 1,
+      isProvider: (idx + 1) % 2 !== 0,
+    },
   });
 
   const postListingsUserConf = {

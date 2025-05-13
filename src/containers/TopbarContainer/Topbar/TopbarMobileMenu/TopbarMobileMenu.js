@@ -71,7 +71,7 @@ const TopbarMobileMenu = props => {
   const {
     isAuthenticated,
     currentPage,
-    currentUserHasListings,
+    inboxTab,
     currentUser,
     notificationCount = 0,
     customLinks,
@@ -146,8 +146,6 @@ const TopbarMobileMenu = props => {
     const isInboxPage = currentPage?.indexOf('InboxPage') === 0 && page?.indexOf('InboxPage') === 0;
     return currentPage === page || isAccountSettingsPage || isInboxPage ? css.currentPage : null;
   };
-
-  const inboxTab = currentUserHasListings ? 'sales' : 'orders';
 
   const manageListingsLinkMaybe = showCreateListingsLink ? (
     <NamedLink
