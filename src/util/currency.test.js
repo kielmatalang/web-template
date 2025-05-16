@@ -215,10 +215,10 @@ describe('currency utils', () => {
 
   describe('convertMoneyToNumber(value)', () => {
     it('Money as value', () => {
-      expect(convertMoneyToNumber(new Money(10, 'USD'))).toEqual(0.1);
-      expect(convertMoneyToNumber(new Money(1000, 'USD'))).toEqual(10);
-      expect(convertMoneyToNumber(new Money(9900, 'USD'))).toEqual(99);
-      expect(convertMoneyToNumber(new Money(10099, 'USD'))).toEqual(100.99);
+      expect(convertMoneyToNumber(new Money(10, 'PHP'))).toEqual(0.1);
+      expect(convertMoneyToNumber(new Money(1000, 'PHP'))).toEqual(10);
+      expect(convertMoneyToNumber(new Money(9900, 'PHP'))).toEqual(99);
+      expect(convertMoneyToNumber(new Money(10099, 'PHP'))).toEqual(100.99);
 
       expect(convertMoneyToNumber(new Money(1, 'JPY'))).toEqual(1);
       expect(convertMoneyToNumber(new Money(100, 'JPY'))).toEqual(100);
@@ -234,7 +234,7 @@ describe('currency utils', () => {
       expect(() => convertMoneyToNumber('10')).toThrowError('Value must be a Money type');
       expect(() => convertMoneyToNumber(true)).toThrowError('Value must be a Money type');
       expect(() => convertMoneyToNumber({})).toThrowError('Value must be a Money type');
-      expect(() => convertMoneyToNumber(new Money('asdf', 'USD'))).toThrowError(
+      expect(() => convertMoneyToNumber(new Money('asdf', 'PHP'))).toThrowError(
         '[DecimalError] Invalid argument'
       );
     });

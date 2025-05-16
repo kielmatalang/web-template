@@ -28,7 +28,7 @@ export const getDefaultConfiguration = () => {
   // TODO: make it possible to overwrite configuration for tests
   return {
     ...defaultConfig,
-    currency: 'USD',
+    currency: 'PHP',
     marketplaceName: 'MarketplaceX',
     facebookAppId: undefined,
     marketplaceRootURL: 'http://localhost:3000',

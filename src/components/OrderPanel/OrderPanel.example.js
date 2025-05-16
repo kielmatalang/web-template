@@ -100,7 +100,7 @@ export const Default = {
   component: OrderPanel,
   props: {
     className: css.example,
-    marketplaceCurrency: 'USD',
+    marketplaceCurrency: 'PHP',
     marketplaceName: 'MarketplaceX',
     dayCountAvailableForBooking: 90,
     listing: createListing('listing_1', {
