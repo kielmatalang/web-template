@@ -5,7 +5,7 @@ import { types as sdkTypes } from '../../util/sdkLoader';
 import EstimatedCustomerBreakdownMaybe from './EstimatedCustomerBreakdownMaybe';
 
 const { Money } = sdkTypes;
-const CURRENCY = 'PHP';
+const CURRENCY = 'USD';
 const marketplaceName = 'MarketplaceX';
 const processName = 'default-booking';
 

@@ -246,14 +246,6 @@ export const supportedCountries = [
     },
   },
   {
-    // Philippines
-    code: 'PH',
-    currency: 'PHP',
-    accountConfig: {
-      iban: true,
-    },
-  },
-  {
     // Poland
     code: 'PL',
     currency: 'PLN',

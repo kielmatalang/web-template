@@ -111,7 +111,7 @@ export const createListing = (id, attributes = {}, includes = {}) => ({
     geolocation: new LatLng(40, 60),
     deleted: false,
     state: LISTING_STATE_PUBLISHED,
-    price: new Money(5500, 'PHP'),
+    price: new Money(5500, 'USD'),
     availabilityPlan: {
       type: 'availability-plan/time',
       timezone: 'Etc/UTC',
@@ -132,7 +132,7 @@ export const createOwnListing = (id, attributes = {}, includes = {}) => ({
     geolocation: new LatLng(40, 60),
     deleted: false,
     state: LISTING_STATE_PUBLISHED,
-    price: new Money(5500, 'PHP'),
+    price: new Money(5500, 'USD'),
     availabilityPlan: {
       type: 'availability-plan/time',
       timezone: 'Etc/UTC',
@@ -178,8 +178,8 @@ export const createTransaction = options => {
     processName = 'default-purchase',
     processVersion = 1,
     lastTransition = processTransitions.CONFIRM_PAYMENT,
-    total = new Money(1000, 'PHP'),
-    commission = new Money(100, 'PHP'),
+    total = new Money(1000, 'USD'),
+    commission = new Money(100, 'USD'),
     booking = null,
     listing = null,
     customer = null,
@@ -298,7 +298,7 @@ export const createTimeSlots = (startDate, numberOfDays) => {
 // Default config for currency formatting in tests and examples.
 export const currencyConfig = {
   style: 'currency',
-  currency: 'PHP',
+  currency: 'USD',
   currencyDisplay: 'symbol',
   useGrouping: true,
   minimumFractionDigits: 2,

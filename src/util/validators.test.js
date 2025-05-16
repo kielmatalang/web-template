@@ -174,13 +174,13 @@ describe('validators', () => {
       expect(moneySubUnitAmountAtLeast('fail', 50)(100)).toEqual('fail');
     });
     it('should not allow too low values', () => {
-      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(0, 'PHP'))).toEqual('fail');
-      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(49, 'PHP'))).toEqual('fail');
+      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(0, 'USD'))).toEqual('fail');
+      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(49, 'USD'))).toEqual('fail');
     });
     it('should allow large enough values', () => {
-      expect(moneySubUnitAmountAtLeast('fail', 0)(new Money(0, 'PHP'))).toBeUndefined();
-      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(50, 'PHP'))).toBeUndefined();
-      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(100, 'PHP'))).toBeUndefined();
+      expect(moneySubUnitAmountAtLeast('fail', 0)(new Money(0, 'USD'))).toBeUndefined();
+      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(50, 'USD'))).toBeUndefined();
+      expect(moneySubUnitAmountAtLeast('fail', 50)(new Money(100, 'USD'))).toBeUndefined();
     });
   });
   describe('validBusinessURL()', () => {

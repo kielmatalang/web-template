@@ -8,7 +8,7 @@ const ProductOrderForm = loadable(() =>
   import(/* webpackChunkName: "ProductOrderForm" */ './ProductOrderForm')
 );
 
-const CURRENCY = 'PHP';
+const CURRENCY = 'USD';
 const marketplaceName = 'MarketplaceX';
 const { Money, UUID } = sdkTypes;
 
