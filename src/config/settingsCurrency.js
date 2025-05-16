@@ -15,12 +15,12 @@ export const stripeSupportedCurrencies = [
   'MXN',
   'NOK',
   'NZD',
+  'PHP',
   'PLN',
   'RON',
   'SEK',
   'SGD',
   'USD',
-  'PHP',
 ];
 
 // Note: This template is designed to support currencies with subunit divisors of 100 or smaller.
